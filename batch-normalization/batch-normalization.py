@@ -3,6 +3,7 @@ import numpy as np
 def batch_norm_forward(x, gamma, beta, eps=1e-5):
     """
     Forward-only BatchNorm for (N,D) or (N,C,H,W).
+    This normalization is applied independently to each feature/channel.
     """
     # Write code here
     x=np.array(x)
