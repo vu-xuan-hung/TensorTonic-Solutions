@@ -10,7 +10,7 @@ def global_avg_pool(x):
     if x.ndim==3:
         gapc=np.zeros(x.shape[0])
         for i in range(x.shape[0]):
-            gapc[i]=np.mean(x[i,:,:],axis=(0,1))
+            gapc[i]=np.mean(x[i,:,:],axis=(0,1))# lấy i thì chỉ còn 2 axis
     elif x.ndim==4:
         gapc=np.zeros((x.shape[0],x.shape[1]))
         for i in range(x.shape[0]):
