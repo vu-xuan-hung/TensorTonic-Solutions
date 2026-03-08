@@ -72,7 +72,7 @@ class ResNet18:
         Forward pass through ResNet-18.
         """
         x=x@self.conv1
-        
+        x=relu(x)
         for block in self.layer1:
             x=block.forward(x)
         for block in self.layer2:
