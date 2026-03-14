@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np#np.max Nó mong array + axis, nên Python hiểu 1 là array và total_steps - warmup_steps là axis.
 def linear_lr(step, total_steps, initial_lr, final_lr=0.0, warmup_steps=0) -> float:
     """
     Linear warmup (0→initial_lr) then linear decay (initial_lr→final_lr).
