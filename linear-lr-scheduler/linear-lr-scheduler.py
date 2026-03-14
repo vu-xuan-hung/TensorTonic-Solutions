@@ -1,0 +1,16 @@
+import numpy as np
+def linear_lr(step, total_steps, initial_lr, final_lr=0.0, warmup_steps=0) -> float:
+    """
+    Linear warmup (0→initial_lr) then linear decay (initial_lr→final_lr).
+    Steps are 0-based; clamp at final_lr after total_steps.
+    """
+    
+    if step<warmup_steps and warmup_steps>0:
+        lr=step*initial_lr/warmup_steps 
+    elif step>total_steps :
+        lr=final_lr
+    else:
+        x=max(1,total_steps-warmup_steps)
+        lr=final_lr+(initial_lr-final_lr)*(total_steps-step)/x
+    return lr
+            
