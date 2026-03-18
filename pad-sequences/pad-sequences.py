@@ -15,11 +15,11 @@ def pad_sequences(seqs, pad_value=0, max_len=None):
     for seq in seqs:
         if len(seq)>max_len:
             seq=seq[:max_len]
-            result.append(seq)
+            
         else:
             while len(seq)<max_len:
                 seq.append(pad_value)
-            result.append(seq)
+        result.append(seq)
     return result
         
     
