@@ -9,12 +9,13 @@ def triplet_loss(anchor, positive, negative, margin=1.0):
     positive=np.array(positive)
     negative=np.array(negative)
     if anchor.ndim==1:
-        d_ap=np.sum(np.square(anchor-positive),axis=0)
-        d_an=np.sum(np.square(anchor-negative),axis=0)
-        l=np.maximum(0,d_ap-d_an+margin)
+        p=np.sum(np.square(anchor-positive))
+        n=np.sum(np.square(anchor-negative))
+        l=np.maximum(0,p-n+margin)
         return float(l)
-    d_ap=np.sum(np.square(anchor-positive),axis=1)
-    d_an=np.sum(np.square(anchor-negative),axis=1)
-    l=np.maximum(0,d_ap-d_an+margin)
-    return float(np.mean(l))
+    else:
+        p=np.sum(np.square(anchor-positive),axis=1)
+        n=np.sum(np.square(anchor-negative),axis=1)
+        l=np.maximum(0,p-n+margin)
+        return float(np.mean(l))
     pass
